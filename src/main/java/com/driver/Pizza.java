@@ -37,14 +37,13 @@ public class Pizza {
     }
 
     public int getPrice(){
-        return this.totalPrice;
+        return this.price;
     }
 
     public void addExtraCheese(){
         if(!isExtraCheseAdded){
-            int pri = this.getPrice()+extraCheese;
-            this.totalPrice = pri;
-            this.isExtraCheseAdded = true;
+            totalPrice += extraCheese;
+            isExtraCheseAdded = true;
         }
         // your code goes here
 
@@ -52,23 +51,21 @@ public class Pizza {
 
     public void addExtraToppings(){
         if(!isExtraToppingsAdded){
-            if(this.isVeg){
-                int pri = this.getPrice()+extraToppingsVeg;
-                this.totalPrice = pri;
+            if(isVeg){
+                totalPrice += extraToppingsVeg;
             }else{
-                int pri = this.getPrice()+extraToppingsNonVeg;
-                this.totalPrice = pri;
+                totalPrice = extraToppingsNonVeg;
             }
-            this.isExtraToppingsAdded = true;
+          isExtraToppingsAdded = true;
         }
 
     }
 
     public void addTakeaway(){
         if(!isTakeAway){
-            int pri = this.totalPrice +20;
-            this.isTakeAway = true;
-            totalPrice = pri;
+            totalPrice += 20;
+            isTakeAway = true;
+
         }
 
     }
