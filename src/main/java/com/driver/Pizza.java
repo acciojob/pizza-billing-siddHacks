@@ -22,12 +22,11 @@ public class Pizza {
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         if(isVeg){
-            this.price = 300;
-            this.totalPrice += price;
+            price = 300;
         }else{
-            this.price = 400;
-            this.totalPrice += price;
+            price = 400;
         }
+        totalPrice = price;
         isExtraCheseAdded = false;
         isExtraToppingsAdded = false;
         isTakeAway = false;
@@ -37,7 +36,7 @@ public class Pizza {
     }
 
     public int getPrice(){
-        return this.price;
+        return this.totalPrice;
     }
 
     public void addExtraCheese(){
@@ -54,7 +53,7 @@ public class Pizza {
             if(isVeg){
                 totalPrice += extraToppingsVeg;
             }else{
-                totalPrice = extraToppingsNonVeg;
+                totalPrice += extraToppingsNonVeg;
             }
           isExtraToppingsAdded = true;
         }
@@ -85,6 +84,7 @@ public class Pizza {
                 bill += "Paperbag Added: " + 20 + "\n";
             }
             bill += "Total Price: " + totalPrice + "\n";
+            isbillGenerated = true;
         }
         return this.bill;
     }
